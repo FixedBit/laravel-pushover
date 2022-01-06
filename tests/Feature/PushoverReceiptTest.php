@@ -26,7 +26,7 @@ class PushoverReceiptTest extends PushoverTestCase
             ->expire(120)
             ->send();
 
-        $receiptResponse = $messageResponse->receipt()->retrieveInfo();
+        $receiptResponse = $messageResponse->receipt()->get();
 
         $this->assertInstanceOf(ReceiptResponse::class, $receiptResponse);
 

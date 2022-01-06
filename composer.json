@@ -1,23 +1,23 @@
 {
-	"name": "edwardkarlsson/laravel-pushover",
+	"name": "fixedbit/laravel-pushover",
 	"description": "A simple, yet very powerful, package that helps you get started with sending push notifications to your iOS or Android device through the pushover.net service.",
 	"type": "library",
 	"keywords": ["laravel", "pushover", "notification"],
 	"license": "MIT",
 	"authors": [
 		{
-			"name": "Edward Karlsson",
-			"email": "edward@medinaproduction.se"
+			"name": "Jason Hawks",
+			"email": "jason@fixedbit.com"
 		}
 	],
 	"require": {
-		"php": ">=7.0",
-		"laravel/framework": "~5.4",
-		"fzaninotto/faker": "~1.7"
+		"php": "^7.3 || ^8.0",
+		"laravel/framework": "^8.0",
+		"fakerphp/faker": "^1.9.1"
 	},
 	"require-dev": {
-		"mockery/mockery": "^0.9.5",
-		"phpunit/phpunit": "~7.0"
+		"mockery/mockery": "^1.4.4",
+		"phpunit/phpunit": "^9.5.10"
 	},
 	"autoload": {
 		"psr-4": {
@@ -25,6 +25,8 @@
 			"Pushover\\Tests\\": "tests/"
 		}
 	},
+	"minimum-stability": "dev",
+    "prefer-stable": true,
 	"scripts": {
 		"test": "vendor/bin/phpunit"
 	},

@@ -48,11 +48,23 @@ class PushoverMessage implements Arrayable
      * @param string $message
      * @param string $title
      */
-    public function __construct(string $message, string $title = null)
+    public function __construct(string $message = null, string $title = null)
     {
         $this->message = $message;
         $this->title = $title;
         $this->api = new ApiService();
+    }
+
+    /**
+     * @param string $message
+     *
+     * @return $this
+     */
+    public function message(string $message)
+    {
+        $this->message = $message;
+
+        return $this;
     }
 
     /**

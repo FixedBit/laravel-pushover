@@ -1,18 +1,23 @@
-# A Pushover.net API implementation for Laravel 5
+# A Pushover.net API implementation for Laravel 8
 
-A simple, yet very powerful, package that helps you get started with sending push notifications to your iOS or Android device through the [pushover.net](https://pushover.net/) service.
+A simple, yet very powerful, package that helps you get started with sending push notifications to your iOS, Android or Desktop through the [pushover.net](https://pushover.net/) service.
 
 ### Content
-- [Installation](#installation)
-- [Configuration](#configuration)
-- [Usage](#usage)
-- [License](#license)
+- [A Pushover.net API implementation for Laravel 8](#a-pushovernet-api-implementation-for-laravel-8)
+    - [Content](#content)
+    - [Installation](#installation)
+    - [Configuration](#configuration)
+    - [Usage](#usage)
+      - [Send message](#send-message)
+      - [Get limits](#get-limits)
+      - [Get receipt](#get-receipt)
+    - [License](#license)
 
 ### Installation
-To get the latest version of edwardkarlsson/laravel-pushover simply require it in your `composer.json` file.
+To get the latest version of fixedbit/laravel-pushover simply require it in your `composer.json` file.
 
 ```bash
-composer require edwardkarlsson/laravel-pushover:dev-master
+composer require fixedbit/laravel-pushover
 ```
 
 This package utilizes the autodiscovery features of Laravel so the installation will be a breeze.
@@ -27,17 +32,19 @@ PUSHOVER_USER=[place this your user key here]
 
 ### Usage
 #### Send message
-To send a notification, simply add this to your code:
 ```php
-$message = new PushoverMessage('My message');
-$message->send();
+// (REQUIRED) Import our PushoverMessage package
+use Pushover\PushoverMessage;
+
+// 1) Simple with just message
+$message = new PushoverMessage('Taylor Otwell is a Legend')->send();
+
+// 2) Simple with message and title
+$message = new PushoverMessage('Learn Laravel from laracasts.com!', 'Learn Laravel')->send();
+
+// 3) You can also choose to add a message (and/or) title as part of the chain
+$message = new PushoverMessage()->message('Futurama Forever!')->title('Best TV Show')->send();
 ```
-You can optionally add a second parameter that will be attached as a title to the message
-```php
-$message = new PushoverMessage('My content', 'My title');
-$message->send();
-```
-_Don't forget to import the class into your file: `use Pushover\PushoverMessage;`_
 
 Advanced usage:
 ```php
@@ -90,6 +97,8 @@ $receiptResponse->calledBack(); // returns boolean
 $receiptResponse->calledBackAt(); // returns Carbon
 ```
 
-#### License
+### License
 
-Copyright (c) 2018 Edward Karlsson Licensed under the [MIT license](https://github.com/edwardkarlsson/laravel-pushover/blob/master/LICENSE).
+Copyright (c) 2022 Jason Hawks Licensed under the [MIT license](https://github.com/fixedbit/laravel-pushover/blob/master/LICENSE).
+
+Forked from [Laravel Pushover](https://github.com/edwardkarlsson/laravel-pushover) by Edward Karlsson and updated with respect.

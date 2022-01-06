@@ -23,12 +23,6 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
      */
     public function boot()
     {
-        if ($this->app->runningInConsole()) {
-            $this->commands([
-    //            UserSumsUpdateCommand::class,
-            ]);
-        }
-
         $this->publishes([
             __DIR__ . '/../config/pushover.php' => config_path('pushover.php'),
         ]);

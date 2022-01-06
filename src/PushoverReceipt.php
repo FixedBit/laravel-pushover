@@ -30,11 +30,9 @@ class PushoverReceipt
     }
 
     /**
-     * Retrieves the message receipt info.
-     *
      * @return ReceiptResponse
      */
-    public function retrieveInfo()
+    public function get()
     {
         $endpoint = '/1/receipts/' . $this->receiptToken . '.json';
         $response = $this->api->get($endpoint);
